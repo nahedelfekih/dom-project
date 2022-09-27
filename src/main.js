@@ -16,8 +16,8 @@ let generateShop = () => {
           <div class="price-quantity">
             <h2>$ ${price} </h2>
             <div class="buttons">
-            <i class="bi bi-heart"></i>
-              <i onclick="decrement(${id})" class="bi bi-dash-lg"></i>
+            <i class="bi bi-heart goo"></i>
+            <i onclick="decrement(${id})" class="bi bi-dash-lg"></i>
               <div id=${id} class="quantity">
               ${search.item === undefined ? 0 : search.item}
               </div>
@@ -71,9 +71,37 @@ let update = (id) => {
   calculation();
 };
 
+
 let calculation = () => {
   let cartIcon = document.getElementById("cartAmount");
   cartIcon.innerHTML = basket.map((x) => x.item).reduce((x, y) => x + y, 0);
 };
+
+
+
+
+let heart = document.querySelectorAll(".goo") ;
+console.log(heart)
+heart.forEach(ele => {
+  ele.addEventListener("click", handelclick);
+  
+});
+function handelclick (ele) {
+
+  ele.target.classList.toggle("active") 
+  // if(e.target.ClassList.contains("active")) {
+  //   e.target.ClassList.remove("active");
+   
+  // } else e.target.ClassList.add("active");
+};
+
+  // ell.target.addEventListener("click",(e)=> { 
+  //   console.log(e.target);
+  //   e.target.classlist.toggele("active")
+  // });
+
+  
+
+//console.log (heart);
 
 calculation();
